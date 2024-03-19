@@ -6,6 +6,7 @@ public class Node {
     public Node(User data) {
         this.data = data;
         this.next = null;
+        this.previews = null;
     }
 
 }
