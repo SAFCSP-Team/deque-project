@@ -13,10 +13,10 @@ public class Main {
 
         deque.addFirst(new User(3, "Khaled"));
 
-        System.out.println(deque.removeFirst().name);
-        System.out.println(deque.removeLast().name);
+        System.out.println("user removed "+ deque.removeFirst().name);
+        System.out.println("user removed "+deque.removeLast().name);
 
-        System.out.println(deque.removeFirst().name);
+        System.out.println("user removed "+deque.removeFirst().name);
 
     }
 }
