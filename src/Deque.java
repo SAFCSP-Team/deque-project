@@ -9,12 +9,35 @@ public class Deque {
     }
 
     public void addFirst(User newData) {
-        // Your code here
+        if (this.front!= null){
+        Node newNode;
+        newNode = new Node(newData);
+        newNode.next = this.front;
+        this.front.previews = newNode;
+        this.front = newNode;
 
+    }else{
+        Node newNode;
+        newNode = new Node(newData);
+        this.front =newNode;
+        this.rear = newNode;
+        }
+    
     }
 
     public void addLast(User newData) {
-        // Your code here
+        if(this.rear != null){
+        Node newNode;
+        newNode = new Node(newData);
+        newNode.previews = this.rear;
+        this.rear.next = newNode;
+        this.rear = newNode;
+        }else{
+            Node newNode;
+            newNode = new Node(newData);
+            this.front =newNode;
+            this.rear = newNode;
+        }
     }
 
     public User removeFirst() {
@@ -22,24 +45,41 @@ public class Deque {
             System.out.println("Queue is empty");
             return null;
         }
+        Node removeadNode = this.front;
+        if (front == rear){
+            this.front = null;
+            this.rear = null;
 
-        // Your code here
+        }else{
+            this.front = this.front.next;
+            this.front.previews =null;
+        }
 
-        return null;
+        return removeadNode.data;
     }
 
     public User removeLast() {
+
+
         if (front == null) {
             System.out.println("Queue is empty");
             return null;
         }
+        Node removeadNode = this.rear;
+        if (front == rear){
+            this.front = null;
+            this.rear = null;
 
-        // Your code here
+        }else{
+            this.rear = this.rear.previews;
+            this.rear.next = null;
+        }
 
-        return null;
+        return removeadNode.data;
     }
 
-    public User getFront() {
+
+public User getFront() {
         if (front == null) {
             System.out.println("Queue is empty");
             return null;
